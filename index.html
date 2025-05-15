@@ -1,0 +1,122 @@
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./style/main.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>PurchaseCounter</title>
+</head>
+<body class="bg-primary-subtle">
+    <div class="container">
+        <div id="toastContainer" class="toast-container position-fixed top-0 start-50 translate-middle-x mt-3" style="z-index: 1080;"></div>
+        <div class="form-container">
+            <h2>現在の状態</h2>
+            <div class="d-flex justify-content-center">
+                <h3 id="view_sales">情報が登録されていません。</h3>
+            </div>
+        </div>
+        <!-- 商品リストテーブル -->
+        <div class="form-container">
+            <h2>商品リスト</h2>
+            <table id="view_table" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>名前</th>
+                        <th>値段</th>
+                        <th>残り在庫</th>
+                        <th>売上</th>
+                        <th>販売量</th>
+                        <th>プレゼント数</th>
+                        <th>生産コスト</th>
+                        <th>総生産量</th>
+                        <th colspan="5">アクション</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 商品データがここに追加されます -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-container">
+            <h2>編集</h2>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CreateModal">商品追加</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditSaleModal">売上変更</button>
+        </div>
+
+        <!-- 読み込み/保存ボタン -->
+        <div class="form-container">
+            <h2>データの読み込み/保存</h2>
+            <div class="d-flex justify-content-center">
+                <button id="load" class="btn btn-primary mx-2">読み込み</button>
+                <button id="save" class="btn btn-primary mx-2">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="CreateModal" tabindex="-1" aria-labelledby="CreateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5 w-100" id="CreateModalLabel">商品追加</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="form_name">商品名</label>
+                        <input id="form_name" type="text" class="form-control" placeholder="商品名">
+                    </div>
+                    <div class="form-group">
+                            <label for="form_cost">単品のコスト</label>
+                        <input id="form_cost" type="number" class="form-control" placeholder="単品のコスト">
+                    </div>
+                    <div class="form-group">
+                        <label for="form_price">値段</label>
+                        <input id="form_price" type="number" class="form-control" placeholder="一個当たりの値段">
+                    </div>
+                    <div class="form-group">
+                        <label for="form_amount">在庫数</label>
+                        <input id="form_amount" type="number" class="form-control" placeholder="生産量">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="form_save" class="btn btn-primary" data-bs-dismiss="modal">保存</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="EditSaleModal" tabindex="-1" aria-labelledby="EditSaleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="EditSaleModalLabel">売り上げ登録</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                    <select id="product" class="form-control" size="5"></select>
+                    <input type="number" id="sold_amount" class="form-control" placeholder="売れた量を書いてください">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="sold_submit" class="btn btn-success" data-bs-dismiss="modal">販売</button>
+                    <button id="present_submit" class="btn btn-success" data-bs-dismiss="modal">プレゼント贈与</button>
+                    <button id="return_submit" class="btn btn-danger" data-bs-dismiss="modal">返品</button>
+                    <button id="present_back_submit" class="btn btn-danger" data-bs-dismiss="modal">プレゼント返却</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS と依存ライブラリ -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+
+    <script src="./script/cookie.js"></script>
+    <script src="./script/product.js"></script>
+    <script src="./script/main.js"></script>
+
+</body>
+</html>

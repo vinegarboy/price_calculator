@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <title>PurchaseCounter</title>
+</head>
+<body>
+    <h1>売上計算機</h1>
+    <button id="load">読み込み(現在の状態が上書きされます)</button>
+    <button id="save">保存</button>
+    <br>
+    <h2 id="view_sales"></h2>
+    <br>
+    <select id="product" size="5"></select>
+    <h2>売上登録</h2>
+    <input type="number" id="sold_amount" placeholder="売れた量を書いてください">
+    <button id="sold_submit">販売</button>
+    <button id="return_submit">返品</button>
+    <button id="present_submit">プレゼント贈与</button>
+    <button id="present_back_submit">プレゼント返却</button>
+    <h2>商品追加</h2>
+    <h4>商品名</h4>
+    <input id="form_name" type="text" placeholder="商品名">
+    <br>
+    <h4>単品のコスト</h4>
+    <input id="form_cost" type="number" placeholder="単品のコスト">
+    <br>
+    <h4>値段</h4>
+    <input id="form_price" type="number" placeholder="一個当たりの値段">
+    <br>
+    <h4>在庫数</h4>
+    <input id="form_amount" type="number" placeholder="生産量">
+    <br>
+    <button id="form_save">保存</button>
+
+    <table id="view_table">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>名前</td>
+                <td>値段</td>
+                <td>残り在庫</td>
+                <td>売上</td>
+                <td>販売量</td>
+                <td>プレゼント数</td>
+                <td>生産コスト</td>
+                <td>総生産量</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script src="./script/cookie.js"></script>
+    <script src="./script/product.js"></script>
+    <script src="./script/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
