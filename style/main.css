@@ -1,67 +1,65 @@
-/* 全体の背景 */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #000000; /* 明るい背景 */
-    color: #333; /* テキストの色を暗くして可読性を向上 */
-}
-
-/* ヘッダー */
-h1 {
-    background-color: #28a745; /* 現在の緑色 */
+    background-color: #000000;
     color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    margin-bottom: 20px;
 }
 
-/* サブヘッダー */
+h1 {
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: white;
+    font-size: 3rem;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    letter-spacing: 3px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 h2 {
     margin-top: 20px;
-    color: #333; /* 見出し色 */
+    color: #ffffff;
 }
 
-/* フォームグループ */
 .form-group {
     margin-bottom: 1rem;
 }
 
-/* フォームのコンテナ */
 .form-container {
-    background-color: #ffffff; /* 白背景でクリーンに */
+    background-color: #ffffff;
+    color: #000;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽い影 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
 }
 
-/* テーブルコンテナ */
 .table-container {
     margin-top: 30px;
 }
 
-/* ボタンのカスタムスタイル */
 .btn-custom, .btn-secondary {
-    background-color: #28a745; /* 緑色で統一 */
-    color: white; /* 文字色を白 */
+    background-color: #28a745;
+    color: white;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 5px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* スムーズなアニメーション */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-custom:hover, .btn-secondary:hover {
-    background-color: #218838; /* ホバー時に少し暗い緑 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* ホバー時に影を追加 */
+    background-color: #218838;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
-/* ボタンのフォーカス時 */
 .btn-custom:focus, .btn-secondary:focus {
-    outline: none; /* フォーカス時のアウトラインを削除 */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.75); /* 青いアウトラインでフォーカス時の視認性を強化 */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.75);
 }
 
-/* テーブルのスタイル */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -74,50 +72,33 @@ table th, table td {
 }
 
 table th {
-    background-color: #007bff; /* テーブルのヘッダー背景色 */
+    background-color: #007bff;
     color: white;
 }
 
 table tr:nth-child(even) {
-    background-color: #f2f2f2; /* 偶数行の背景色 */
+    background-color: #f2f2f2;
 }
 
 table tr:hover {
-    background-color: #e9ecef; /* テーブル行のホバー時の背景色 */
+    background-color: #e9ecef;
 }
 
-/* インプットフォームのスタイル */
 .form-control {
-    border-radius: 5px; /* フォームの角を丸く */
+    border-radius: 5px;
     padding: 10px;
     font-size: 14px;
     margin-bottom: 10px;
-    border: 1px solid #ccc; /* 目立ちすぎない枠線 */
+    border: 1px solid #ccc;
 }
 
 .form-control:focus {
-    border-color: #007bff; /* フォームがフォーカスされたときに青枠 */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* 青いアウトライン */
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* その他の全体的な調整 */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-}
-/* ヘッダー */
-h1 {
-    background: linear-gradient(45deg, #28a745, #218838); /* 緑色のグラデーション */
-    color: white; /* 文字色を白に */
-    font-size: 3rem; /* 大きめのフォントサイズ */
-    padding: 40px 20px; /* 上下に広めの余白 */
-    text-align: center; /* テキストを中央揃え */
-    border-radius: 10px; /* 角を丸める */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 軽い影を追加して立体感を出す */
-    letter-spacing: 3px; /* 文字間を少し広げる */
-    font-family: 'Roboto', sans-serif; /* モダンでシャープな印象のフォント */
-    text-transform: uppercase; /* 文字をすべて大文字に */
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 変化をスムーズに */
 }
